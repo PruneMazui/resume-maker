@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font: 14pt "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+            background: #fff;
+        }
+
+        article.print_page {
+            width: 210mm;
+            height: 297mm;
+        }
+
+        section {
+            clear: both;
+        }
+
+        section h1 {
+            font-size: 50%;
+            margin: 0;
+        }
+
+        section p {
+            margin: 0;
+            margin-left: 5mm;
+        }
+
+        table {
+            width: 100%;
+            border: solid 0.5mm #000;
+            border-collapse: collapse;
+            margin: 1mm 0;
+        }
+
+        table th {
+            text-align: center;
+            font-family: "ヒラギノ角ゴ Pro W3", "メイリオ", Osaka, Arial, Verdana, "ＭＳ Ｐゴシック", sans-serif;
+            border: solid 0.5mm #000;
+        }
+
+        table td {
+            border: solid 0.5mm #000;
+        }
+
+        ul {
+            border-bottom: solid 0.5mm #000;
+            list-style: none;
+        }
+
+        ul :last-child {
+            border-bottom: none;
+        }
+
+        .clearfix:after {
+            content: "";
+            clear: both;
+            display: block;
+        }
+
+        .ruby {
+            border-bottom: dashed 0.3mm #000;
+            width: 100%;
+        }
+
+        .ruby h1 {
+            float: left;
+            margin: 0;
+            margin-right: 5mm;
+        }
+
+        .ruby p {
+            font-size: 50%;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .right {
+            text-align: right;
+        }
+
+        .tel,
+        .phone,
+        .other_contact {
+            border: solid 0.5mm #000;
+        }
+
+        #header h1 {
+            font-size: 150%;
+            font-family: "ヒラギノ角ゴ Pro W3", "メイリオ", Osaka, Arial, Verdana, "ＭＳ Ｐゴシック", sans-serif;
+            float: left;
+            margin: 0;
+        }
+
+        #header p {
+            font-size: 60%;
+            text-align: right;
+            width: 100%;
+        }
+
+        #box1 {
+            width: 70%;
+            border-style: solid;
+            border-width: 0.5mm;
+        }
+
+        #box1-1 {
+            display: -webkit-box;
+            display: -moz-box;
+            display: -o-box;
+            display: -ms-box;
+            box-orient: horizontal;
+        }
+
+        #name {
+            border-bottom: solid 0.5mm #000;
+            clear: both;
+        }
+
+        #name p {
+            margin-left: 5mm;
+        }
+
+        #birthday {
+            width: 80%;
+            border-right: solid 0.5mm #000;
+        }
+
+        #box2 {
+            width: 100%;
+            border: solid 0.5mm #000;
+        }
+
+        #post {
+            font-size: 80%;
+        }
+
+        #address {
+            border-bottom: solid 0.5mm #000;
+        }
+
+        #PR,
+        #skill {
+            border: solid 0.5mm #000;
+            margin: 1mm 0;
+        }
+
+        #box3 {
+            border: solid 0.5mm #000;
+        }
+
+        #box3-1 #spouse {
+            float: left;
+        }
+
+        #box3-1 #supporting_duty {
+            overflow: auto;
+        }
+
+        #request {
+            border: solid 0.5mm #000;
+            margin: 1mm 0;
+        }
+
+        #request h1 {
+            border-bottom: solid 0.5mm #000;
+        }
+    </style>
+
+    <title>履歴書</title>
+</head>
+
+<body>
+    <article class="print_page">
+        <header id="header" class="clearfix">
+            <h1>履歴書</h1>
+            <p>2016年4月16日現在</p>
+        </header>
+        <div id="box1">
+            <section id="name">
+                <div class="ruby">
+                    <h1>ふりがな</h1>
+                    <p>ためしになんかんかく</p>
+                </div>
+                <h1>氏名</h1>
+                <p>試しになんか書く</p>
+            </section>
+            <div id="box1-1">
+                <section id="birthday">
+                    <p>1990年4月4日</p>
+                </section>
+                <section id="sex">
+                    <p>男</p>
+                </section>
+            </div>
+        </div>
+        <div id="box2">
+            <section id="address">
+                <div class="ruby">
+                    <h1>ふりがな</h1>
+                    <p>ためしになんかかく</p>
+                </div>
+                <h1>現住所</h1>
+                <p id="post">〒090-6261</p>
+                <p>試しになんかかく</p>
+            </section>
+            <section class="tel">
+                <h1>電話</h1>
+                <p>012-3456-7890</p>
+            </section>
+            <section class="phone">
+                <h1>携帯</h1>
+                <p>012-3456-7890</p>
+            </section>
+            <section id="contact">
+                <div class="ruby">
+                    <h1>ふりがな</h1>
+                    <p>ためしになんかかく</p>
+                </div>
+                <h1>連絡先</h1>
+                <p>試しになんかかく</p>
+            </section>
+            <section class="tel">
+                <h1>電話</h1>
+                <p>012-3456-7890</p>
+            </section>
+            <section class="other_contact">
+                <h1>メール</h1>
+                <p>jone@due.com</p>
+            </section>
+        </div>
+        <section id="resume">
+            <table>
+                <tr>
+                    <th>年</th>
+                    <th>月</th>
+                    <th>学歴・職歴</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td class="center">学歴</td>
+                </tr>
+                <tr>
+                    <td>平成X年</td>
+                    <td>X月</td>
+                    <td>ほげ立ほげ学校卒業</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>　</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>　</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>　</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>　</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>　</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>　</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>　</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td class="center">職歴</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>　</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>　</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>　</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>　</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>　</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>　</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td class="right">以上</td>
+                </tr>
+            </table>
+        </section>
+    </article>
+
+    <!-- 2ページ目 -->
+
+    <article class="print_page">
+        <section id="license">
+            <table>
+                <tr>
+                    <th>年</th>
+                    <th>月</th>
+                    <th>免許・資格</th>
+                </tr>
+                <tr>
+                    <td>平成X年
+                        <!-- 免許・資格を取得した年を書いてください。 -->
+                    </td>
+                    <td>Y月</td>
+                    <td>ほげふが免許取得</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </section>
+        <section id="PR">
+            <h1>自己PR</h1>
+            <p>ほげふがぴよ
+                <!-- ここに自己PRを書いてください。 -->
+            </p>
+        </section>
+        <section id="skill">
+            <h1>自己保有スキル</h1>
+            <p>ほげふがぴよ
+                <!-- ここに自己保有スキルを書いてください。 -->
+            </p>
+        </section>
+        <div id="box3">
+            <section id="motive">
+                <h1>志望の動機
+                    <!-- 必要があれば「特技」や「好きな学科」を書き加えるなどしてください。 -->
+                </h1>
+                <p>ほげふがぴよ
+                    <br>ぴよぴよふが
+                    <br>ふがふがぴよ
+                    <!-- ここに志望動機などを書いてください -->
+                </p>
+            </section>
+            <section id="commuting_time">
+                <h1>通勤時間</h1>
+                <p>1時間
+                    <!-- ここにおおよその通勤時間を書いてください。 -->
+                </p>
+            </section>
+            <section id="dependant">
+                <h1>扶養家族（配偶者を除く）</h1>
+                <p>なし
+                    <!-- ここに配偶者を除く扶養家族を書いてください。 -->
+                </p>
+            </section>
+            <div id="box3-1">
+                <section id="spouse">
+                    <h1>配偶者の有無</h1>
+                    <p>なし
+                        <!-- ここに配偶者の有無を書いてください。-->
+                    </p>
+                </section>
+                <section id="supporting_duty">
+                    <h1>配偶者の扶養義務</h1>
+                    <p>なし
+                        <!-- ここに配偶者の扶養義務の有無を書いてください。 -->
+                    </p>
+                </section>
+            </div>
+        </div>
+        <section id="request" class="clearfix">
+            <h1>本人希望記入欄</h1>
+            <ul>
+                <li>勤務地にほげを希望します。
+                    <!-- ここにあなたが会社に希望することを書き込んでください。 -->
+                </li>
+                <li>
+                    <!-- 特に給与、職種、勤務時間、勤務地などを書くといいと思います。 -->
+                </li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </section>
+    </article>
+</body>
+
+</html>
