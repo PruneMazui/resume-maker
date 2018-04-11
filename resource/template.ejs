@@ -118,11 +118,7 @@
                                 <h1>履歴書</h1>
                             </td>
                             <td class="no_border" style="text-align: right; padding-right:3mm">
-                                <% if @date?: %>
-                                    <%= @date %>
-                                <% else: %>
-                                    年　　月　　日現在
-                                <% end %>
+                                <%= echo("date", "年　　月　　日現在") %>
                             </td>
                         </tr>
                     </table>
@@ -134,20 +130,20 @@
                         <table>
                             <tr class="kana">
                                 <td class="label">フリガナ</td>
-                                <td class="content"><%= @name_kana %></td>
-                                <td rowspan="2" class="center">
-                                    <%= @gender %>
+                                <td class="content"><%= echo("name_kana") %></td>
+                                <td rowspan="2" class="center" style="width:2cm;">
+                                    <%= echo("gender") %>
                                 </td>
                             </tr>
 
                             <tr style="height: 25mm;">
                                 <td class="label">氏名</td>
-                                <td class="content"><%= @name %></td>
+                                <td class="content"><%= echo("name") %></td>
                             </tr>
 
                             <tr>
                                 <td class="label">生年月日</td>
-                                <td class="content" colspan="2"><%= @birth_day %></td>
+                                <td class="content" colspan="2"><%= echo("birth_day") %></td>
                             </tr>
                         </table>
                     </div>
@@ -163,14 +159,14 @@
                     <table>
                         <tr class="kana">
                             <td class="label">フリガナ</td>
-                            <td class="content" colspan="3"><%= @address_kana %></td>
+                            <td class="content" colspan="3"><%= echo("address_kana") %></td>
                         </tr>
 
                         <tr class="bold">
                             <td class="label">現住所</td>
                             <td class="content" colspan="3">
-                                <div><%= @zip_code %></div>
-                                <%= @address %>
+                                <div><%= echo("zip_code") %></div>
+                                <%= echo("address") %>
                             </td>
                         </tr>
                     </table>
@@ -182,18 +178,17 @@
                     <table>
                         <tr>
                             <td class="label">電話</td>
-                            <td class="content" style="width: 70mm;"><%= @tel %></td>
+                            <td class="content" style="width: 70mm;"><%= echo("tel") %></td>
                             <td class="label">携帯電話</td>
-                            <td class="content"><%= @phone %></td>
+                            <td class="content"><%= echo("phone") %></td>
                         </tr>
                         <tr>
                             <td class="label">E-mail</td>
-                            <td class="content" colspan="3"><%= @mail %></td>
+                            <td class="content" colspan="3"><%= echo("mail") %></td>
                         </tr>
                     </table>
                 </td>
             </tr>
-
             <tr>
                 <td class="no_border">
                     <table class="work_history">
@@ -202,16 +197,20 @@
                             <td class="center" style="width: 10%;">月</td>
                             <td class="center">学歴・職歴</td>
                         </tr>
-                        <% @index = 0 %>
-                        <% for i in [0..12] : %>
-                        <% @row = @pop_history(@index) %>
+                        <%
+                            let index = 0;
+                            for (let i = 0; i < 13; i++) {
+                                let row = fetch_history(index);
+                        %>
                         <tr>
-                            <td class="center"><%= @row.year %></td>
-                            <td class="center"><%= @row.month %></td>
-                            <td class="<% if @row.year == '': %>center<% else: %>content<% end %>"><%= @row.value %></td>
+                            <td class="center"><%= row.year %></td>
+                            <td class="center"><%= row.month %></td>
+                            <td class="<% if(row.year == '') { %>center<% } else { %>content<% } %>"><%= row.value %></td>
                         </tr>
-                        <% @index = @index + 1 %>
-                        <% end %>
+                        <% 
+                                index++;
+                            }
+                        %>
                     </table>
                 </td>
             </tr>
@@ -219,7 +218,7 @@
     </page>
 
     <div style="page-break-after: always;"></div>
-
+    
     <hr>
 
     <page size="A4">
@@ -232,15 +231,19 @@
                             <td class="center" style="width: 10%;">月</td>
                             <td class="center">学歴・職歴</td>
                         </tr>
-                        <% for i in [0..6] : %>
-                        <% @row = @pop_history(@index) %>
+                        <%
+                            for (let i = 0; i < 7; i++) {
+                                let row = fetch_history(index);
+                        %>
                         <tr>
-                            <td class="center"><%= @row.year %></td>
-                            <td class="center"><%= @row.month %></td>
-                            <td class="<% if @row.year == '': %>center<% else: %>content<% end %>"><%= @row.value %></td>
+                            <td class="center"><%= row.year %></td>
+                            <td class="center"><%= row.month %></td>
+                            <td class="<% if(row.year == '') { %>center<% } else { %>content<% } %>"><%= row.value %></td>
                         </tr>
-                        <% @index = @index + 1 %>
-                        <% end %>
+                        <% 
+                                index++;
+                            }
+                        %>
                     </table>
                 </td>
             </tr>
@@ -253,14 +256,16 @@
                             <td class="center" style="width: 10%;">月</td>
                             <td class="center">免許・資格</td>
                         </tr>
-                        <% for i in [0..7] : %>
-                        <% @row = @pop_license() %>
+                        <% 
+                            for (let i = 0; i < 8; i++) { 
+                                let row = fetch_license();
+                        %>
                         <tr>
-                            <td class="center"><%= @row.year %></td>
-                            <td class="center"><%= @row.month %></td>
-                            <td class="content"><%= @row.value %></td>
+                            <td class="center"><%= row.year %></td>
+                            <td class="center"><%= row.month %></td>
+                            <td class="content"><%= row.value %></td>
                         </tr>
-                        <% end %>
+                        <% } %>
                     </table>
                 </td>
             </tr>
@@ -271,7 +276,7 @@
                             <td style="padding-left:2mm;">本人希望入力欄</td>
                         </tr>
                         <tr style="height: 78mm;">
-                            <td valign="top" class="content" style="white-space: pre;"><%= @free %></td>
+                            <td valign="top" class="content" style="white-space: pre;"><%= echo("free") %></td>
                         </tr>
                     </table>
                 </td>
