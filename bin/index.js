@@ -10,9 +10,7 @@ const render_html = () => {
 
 const make_pdf = (config_file, export_file) => {
     let html = render_html();
-    let options = { format: "A3" };
-
-    console.log(html);
+    let options = { format: "A4" };
 
     require("html-pdf").create(html, options).toFile(export_file, function(err, res) {
         if (err) return console.log(err);
