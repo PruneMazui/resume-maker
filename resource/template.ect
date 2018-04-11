@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font: 14pt "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+            font-weight: bold;
+            background: black;
+        }
+
+        page[size="A4"] {
+            background: white;
+            width: 21cm;
+            height: 29.6cm;
+            display: block;
+            margin: 0 auto;
+        }
+
+        @media print {
+            body,
+            page[size="A4"] {
+                margin: 0;
+            }
+
+            body {
+                background: white;
+            }
+
+            hr {
+                display: none;
+            }
+        }
+
+        div {
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .page {
+            width: 172mm;
+            overflow: hidden;
+        }
+
+        table,
+        td,
+        th {
+            border-collapse: collapse;
+        }
+
+        td,
+        th {
+            border: 1px solid #000;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        tr {
+            height: 12mm;
+        }
+
+        table {
+            width: 100%;
+            margin: 0;
+        }
+
+        .block_photo {
+            width: 2.9cm;
+            height: 3.9cm;
+            margin: 4mm;
+            border: 1px dashed;
+        }
+
+        .no_border {
+            border: none;
+        }
+
+        .label {
+            width: 30mm;
+            text-align: right;
+            padding-right: 2mm;
+        }
+
+        tr.kana {
+            font-size: 11pt;
+            height: 10mm;
+        }
+
+        tr.bold {
+            height: 30mm;
+        }
+
+        .content {
+            padding-left: 2mm;
+            padding-right: 2mm;
+        }
+
+        .center {
+            text-align: center;
+        }
+    </style>
+    <title>履歴書</title>
+</head>
+
+<body>
+    <page size="A4">
+        <table>
+            <tr>
+                <td class="no_border">
+                    <table>
+                        <tr>
+                            <td class="no_border">
+                                <h1>履歴書</h1>
+                            </td>
+                            <td class="no_border" style="text-align: right; padding-right:3mm">
+                                <% if @date?: %>
+                                    <%= @date %>
+                                <% else: %>
+                                    年　　月　　日現在
+                                <% end %>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td class="no_border">
+                    <div style="float: left;width: 175mm;">
+                        <table>
+                            <tr class="kana">
+                                <td class="label">フリガナ</td>
+                                <td class="content"><%= @name_kana %></td>
+                                <td rowspan="2" class="center">
+                                    <%= @gender %>
+                                </td>
+                            </tr>
+
+                            <tr style="height: 25mm;">
+                                <td class="label">氏名</td>
+                                <td class="content"><%= @name %></td>
+                            </tr>
+
+                            <tr>
+                                <td class="label">生年月日</td>
+                                <td class="content" colspan="2"><%= @birth_day %></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div style="width: 36mm;margin-left: auto;">
+                        <!-- 写真 -->
+                        <div class="block_photo"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="no_border">
+                    <table>
+                        <tr class="kana">
+                            <td class="label">フリガナ</td>
+                            <td class="content" colspan="3"><%= @address_kana %></td>
+                        </tr>
+
+                        <tr class="bold">
+                            <td class="label">現住所</td>
+                            <td class="content" colspan="3">
+                                <div><%= @zip_code %></div>
+                                <%= @address %>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="no_border">
+                    <table>
+                        <tr>
+                            <td class="label">電話</td>
+                            <td class="content" style="width: 70mm;"><%= @tel %></td>
+                            <td class="label">携帯電話</td>
+                            <td class="content"><%= @phone %></td>
+                        </tr>
+                        <tr>
+                            <td class="label">E-mail</td>
+                            <td class="content" colspan="3"><%= @mail %></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="no_border">
+                    <table class="work_history">
+                        <tr>
+                            <td class="center" style="width: 15%;">年</td>
+                            <td class="center" style="width: 10%;">月</td>
+                            <td class="center">学歴・職歴</td>
+                        </tr>
+                        <% @index = 0 %>
+                        <% for i in [0..12] : %>
+                        <% @row = @pop_history(@index) %>
+                        <tr>
+                            <td class="center"><%= @row.year %></td>
+                            <td class="center"><%= @row.month %></td>
+                            <td class="<% if @row.year == '': %>center<% else: %>content<% end %>"><%= @row.value %></td>
+                        </tr>
+                        <% @index = @index + 1 %>
+                        <% end %>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </page>
+
+    <div style="page-break-after: always;"></div>
+
+    <hr>
+
+    <page size="A4">
+        <table>
+            <tr>
+                <td class="no_border">
+                    <table class="work_history">
+                        <tr>
+                            <td class="center" style="width: 15%;">年</td>
+                            <td class="center" style="width: 10%;">月</td>
+                            <td class="center">学歴・職歴</td>
+                        </tr>
+                        <% for i in [0..6] : %>
+                        <% @row = @pop_history(@index) %>
+                        <tr>
+                            <td class="center"><%= @row.year %></td>
+                            <td class="center"><%= @row.month %></td>
+                            <td class="<% if @row.year == '': %>center<% else: %>content<% end %>"><%= @row.value %></td>
+                        </tr>
+                        <% @index = @index + 1 %>
+                        <% end %>
+                    </table>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="no_border">
+                    <table class="work_history">
+                        <tr>
+                            <td class="center" style="width: 15%;">年</td>
+                            <td class="center" style="width: 10%;">月</td>
+                            <td class="center">免許・資格</td>
+                        </tr>
+                        <% for i in [0..7] : %>
+                        <% @row = @pop_license() %>
+                        <tr>
+                            <td class="center"><%= @row.year %></td>
+                            <td class="center"><%= @row.month %></td>
+                            <td class="content"><%= @row.value %></td>
+                        </tr>
+                        <% end %>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td class="no_border">
+                    <table>
+                        <tr>
+                            <td style="padding-left:2mm;">本人希望入力欄</td>
+                        </tr>
+                        <tr style="height: 78mm;">
+                            <td valign="top" class="content" style="white-space: pre;"><%= @free %></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </page>
+</body>
+
+</html>
