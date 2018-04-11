@@ -106,4 +106,4 @@ const make_pdf = (config_file, export_file) => {
     process.cwd();
 };
 
-make_pdf("resume.json", "./hoge.pdf");
+make_pdf("resume.json", "resume.pdf");
