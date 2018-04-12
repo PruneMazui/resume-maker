@@ -11,6 +11,11 @@ Resume Maker
 
 * nodejs >= 6.9.5
 
+## Dependences
+
+* ejs >= 2.5.8
+* html-pdf >= 2.2.0
+
 ## Usage
 
 1. Download the source code and move the directory.
