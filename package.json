@@ -11,7 +11,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "ect": "^0.5.9",
+    "ejs": "^2.5.8",
     "html-pdf": "^2.2.0"
   }
 }

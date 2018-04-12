@@ -1,0 +1,50 @@
+{
+    "date": "",
+    "name_kana": "",
+    "name": "",
+    "gender": "",
+    "birth_day": "",
+    "address_kana": "",
+    "zip_code": "",
+    "address": "",
+    "tel": "",
+    "phone": "",
+    "mail": "",
+    "academic_histories": [
+        {
+            "year": "",
+            "month": "",
+            "value": ""
+        },
+        {
+            "year": "",
+            "month": "",
+            "value": ""
+        }
+    ],
+    "work_histories": [
+        {
+            "year": "",
+            "month": "",
+            "value": ""
+        },
+        {
+            "year": "",
+            "month": "",
+            "value": ""
+        }
+    ],
+    "licenses": [
+        {
+            "year": "",
+            "month": "",
+            "value": ""
+        },
+        {
+            "year": "",
+            "month": "",
+            "value": ""
+        }
+    ],
+    "free": ""
+}
