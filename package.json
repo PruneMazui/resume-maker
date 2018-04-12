@@ -3,9 +3,10 @@
   "version": "0.0.1",
   "description": "",
   "bin": {
-    "make-resume": "bin/index.js"
+    "make-jp-resume": "bin/index.js"
   },
   "scripts": {
+    "make-jp-resume" : "node bin/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
