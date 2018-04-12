@@ -1,16 +1,13 @@
 #!/usr/bin/env node
 "use strict";
-
-var args = process.argv.slice(2);
-
 let fs = require("fs");
 
 const help = () => {
-
+    // @todo implements
 };
 
 const generate_config = () => {
-
+    // @todo implements
 };
 
 const render_html = data => {
@@ -20,6 +17,7 @@ const render_html = data => {
 
     {
         // 表示用の関数をオブジェクトに拡張しておく
+        // @todo refactor
         let academic_histories = data.academic_histories || [];
         let work_histories = data.work_histories || [];
     
@@ -95,8 +93,10 @@ const render_html = data => {
 };
 
 const make_pdf = (config_file, export_file) => {
+    // @todo refactor & error handling
     let data = {};
-    if (fs.existsSync(config_file)) {
+    
+    if (config_file && fs.existsSync(config_file)) {
         try {
             data = JSON.parse(fs.readFileSync(config_file, 'utf8'));
         } catch (error) {
@@ -107,20 +107,20 @@ const make_pdf = (config_file, export_file) => {
 
     let html = render_html(data);
 
-    fs.writeFileSync("./hoge.html", html);
+    let options = { format: "A4" };
 
-    
-
-    // let options = { format: "A4" };
-
-    // require("html-pdf").create(html, options).toFile(export_file, function(err, res) {
-    //     if (err) {
-    //         return console.log(err);
-    //     }
-    //     console.log(res); // { filename: '/app/businesscard.pdf' }
-    // });
-    
-    // process.cwd();
+    require("html-pdf").create(html, options).toFile(export_file, function(err, res) {
+        if (err) {
+            return console.log(err);
+        }
+        console.log(res); // { filename: '/app/businesscard.pdf' }
+    });
 };
 
-make_pdf("resume.json", "resume.pdf");
+{ // main処理
+    let args = process.argv.slice(2);
+    let config_file = args[0] || "resume.json";
+    let export_file = args[1] || "resume.pdf";
+
+    make_pdf(config_file, export_file);
+}
