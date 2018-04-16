@@ -6,7 +6,7 @@
     "make-jp-resume": "bin/index.js"
   },
   "scripts": {
-    "make-jp-resume" : "node bin/index.js",
+    "make-jp-resume": "node bin/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -14,5 +14,9 @@
   "dependencies": {
     "ejs": "^2.5.8",
     "html-pdf": "^2.2.0"
+  },
+  "main": "lib/make-jp-resume.js",
+  "engines": {
+    "node": ">=6.9.5"
   }
 }
