@@ -7,7 +7,8 @@
   },
   "scripts": {
     "make-jp-resume": "node bin/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "./node_modules/.bin/eslint lib/*"
   },
   "author": "",
   "license": "MIT",
@@ -18,5 +19,10 @@
   "main": "lib/make-jp-resume.js",
   "engines": {
     "node": ">=6.9.5"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-plugin-node": "^6.0.1",
+    "mocha": "^5.1.1"
   }
 }
