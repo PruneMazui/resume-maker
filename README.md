@@ -1,11 +1,11 @@
 Resume Maker
 ===
 
-**Current version is working version**
+[![Build Status](https://travis-ci.com/PruneMazui/resume-maker.svg?branch=master)](https://travis-ci.com/PruneMazui/resume-maker)
 
 ## Overview
 
-* Generate a JIS standard resume (for JP) from the config file.
+* Generate a JIS standard resume (for Japanese) from the json config file.
 
 ## Requirement
 
