@@ -7,4 +7,4 @@ let args = process.argv.slice(2);
 let config_file = args[0] || "resume.json";
 let export_file = args[1] || "resume.pdf";
 
-resume.output_pdf(config_file, export_file);
+resume.run(config_file, export_file);
