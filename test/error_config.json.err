@@ -1,36 +1,6 @@
-Resume Maker
-===
-
-**Current version is working version**
-
-## Overview
-
-* Generate a JIS standard resume (for JP) from the config file.
-
-## Requirement
-
-* nodejs >= 6.9.5
-
-## Dependences
-
-* ejs >= 2.5.8
-* html-pdf >= 2.2.0
-
-## Usage
-
-1. Download the source code and move the directory.
-2. Execute the command. `npm i`
-3. Make a config file referring to file.`resume.template.json`
-4. Execute the command. `npm run make-jp-resume [config file] [output pdf]`
-
-## Example
-
-### Config file
-
-```json
 {
     "date": "YYYY年 MM月 DD日現在",
-    "name_kana": "ヤマダ タロウ",
+    "name_kana": "ヤマダ タロウ"
     "name": "山田 太郎",
     "gender": "男",
     "birth_day": "YYYY年 MM月 DD日",
@@ -78,8 +48,3 @@ Resume Maker
     ],
     "free": "これはサンプルです。\nよろしくお願いします。"
 }
-```
-### Made PDF
-
-![capture1.jpg](example/capture1.jpg)
-![capture2.jpg](example/capture2.jpg)
